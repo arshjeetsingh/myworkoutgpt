@@ -13,20 +13,20 @@ import pandas as pd
 #Initialize the OpenAI client with your API key
 # openai.api_key = "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" #(for openai0.28)
 client = OpenAI(
-  api_key='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',
+  api_key='',
 )
 
 # Initialize Flask application
 app = Flask(__name__)
 # Enable debug mode for easier troubleshooting during development
 app.config['DEBUG'] = True
-app.secret_key = 'gbhwV3PosdBlCrqlZWS5dA'
+app.secret_key = ''
 
 # Strava API and OpenAI API credentials
-client_id = '122577'
-client_secret = '9b3d6bb1d8aa8dbd537dfe270d8b1c10ee81e606'
-openai_api_key = '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'
-assistant_id = 'asst_x3kMlwfdACiMtfaXjqH9mnSU'
+client_id = ''
+client_secret = ''
+openai_api_key = ''
+assistant_id = ''
 
 # Set OpenAI API key for usage in the app
 # openai.api_key = openai_api_key

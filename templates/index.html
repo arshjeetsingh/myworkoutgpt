@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-wrap">
+                <div class="left-container">
+                    <div class="logo-wrap">
+                        <a href="https://graycelltech.in/gct/workout-gpt/"><img
+                                src="{{ url_for('static', filename='images/mw-gpt.svg') }}" /></a>
+                        <div class="img-cycling-m">
+                            <img src="{{ url_for('static', filename='images/running.png') }}" />
+                        </div>
+
+                        <div class="header-text">
+                            <h1>Welcome to your workout GPT: Your ultimate data analysis companion!</h1>
+                            <p>Workout GPT harnesses the power of AI through a great interface, empowering
+                                you to analyse your workout data effortlessly and provide personalized training
+                                recommendations tailored specifically to your goals, fitness level, and preferences.
+                                Dive deep into your activities, uncover insights, and track your progress with
+                                precision through our intuitive interface. Whether you're a seasoned athlete or
+                                just starting out, workout GPT provides the tools you need to optimize your training 
+                                while achieve your goals. Join us now and unlock the full potential of your Strava data!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-container">
+                    <div class="img-cycling img-cycling-d ">
+                        <img src="{{ url_for('static', filename='images/running.png') }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="banner">
+        <div class="banner-section">
+            <h2> <strong> As your dedicated fitness coach/instructor, I offer expert guidance to address any
+                    challenges you may encounter on your fitness journey. </strong></h2>
+            <p> Please share the specific challenges you're encountering, whether it's refining your fitness
+                routine, staying consistent, enhancing your workouts, or choosing the optimal gym to increase your
+                power. Let's delve into these challenges together and work towards elevating your fitness journey!.
+            </p>
+            <div class="connect-strava-btn">
+                <a
+                    href="https://www.strava.com/oauth/authorize?client_id=122577&response_type=code&redirect_uri=http://192.168.100.15:5000/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all">
+                    <img width="290px" height="96px"
+                        src="{{ url_for('static', filename='images/btn-strava.svg') }}" /></a>
+            </div>
+            <div class="form-gpt">
+                <form action="{{ url_for('query_activities') }}" method="post">
+                    <div class="input-container">
+                        <textarea name="question" rows="1" placeholder="Message Workout GPT" required></textarea>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            
+            {% if answer %}
+            <div class="answers" style="color: black; margin-top: 20px;">
+                {{ answer|safe }}
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="form-enquiry-section">
+        <div class="form-enquiry">
+            <div>
+                <h2>Say, Hello!</h2>
+                <p>(Game time, I'm ready to shine!)</p>
+               
+                <form action="{{ url_for('submit_form') }}" method="post">
+                    <input type="text" name="name" class="text" placeholder="Name" required>
+                    <input type="email" name="email" class="text" placeholder="Email" required>
+                    <textarea id="message" name="message" class="text" placeholder="Message" required></textarea>
+                    <input type="submit" class="button" value="Send Message">
+                </form>
+            </div>
+        </div>
+        <div class="content-footer">
+            <p> <span>&#169;</span> 2024 MyWorkoutGPT. All Rights Reserved.</p>
+            <p>Powered by <a href="https://www.graycelltech.com/" target="_blank"> GrayCell Technologies</a></p>
+        </div>
+    </section>
+</body>
+
+</html>

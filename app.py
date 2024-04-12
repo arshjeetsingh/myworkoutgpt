@@ -11,7 +11,7 @@ import pandas as pd
 
 
 #Initialize the OpenAI client with your API key
-# openai.api_key = "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" #(for openai0.28)
+# openai.api_key = "" #(for openai0.28)
 client = OpenAI(
   api_key='',
 )
